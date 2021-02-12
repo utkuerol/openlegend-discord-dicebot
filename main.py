@@ -17,7 +17,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith("/r"):
+    if message.content.startswith("/r") or message.content.startswith("/roll"):
         check_err = utils.parse_msg(
             message.content)
         if check_err == -1:
