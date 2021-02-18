@@ -59,12 +59,12 @@ async def on_message(message):
                 if attr_dropped == "":
                     attr_dropped = "-"
 
-                msg += "\n----------\nTotal: {} \nBase (1d20 = {}): \t {} \t *dropped: {} \t dropped (vicious strike): {}* \nAttribute ({} = {}): \t {} \t *dropped: {}*".format((total_base + total_attr), total_base,
-                                                                                                                                                                                 base_kept, base_dropped, base_dropped_vs, total_attr, info, attr_kept, attr_dropped)
+                msg += "\n----------\nTotal: {} \nBase (1d20 -> {}): \t {} \t *dropped: {} \t dropped (vicious strike): {}* \nAttribute ({} -> {}): \t {} \t *dropped: {}*".format((total_base + total_attr), total_base,
+                                                                                                                                                                                   base_kept, base_dropped, base_dropped_vs, info, total_attr, attr_kept, attr_dropped)
 
             await message.channel.send(msg)
 
-    elif message.content.startswith("/r!") or message.content.startswith("/roll!"):
+    elif message.content.startswith("/!r") or message.content.startswith("/!roll"):
         args = message.content.split(" ")[1:]
         result = utils.roll_raw(args[0])
         await message.channel.send("{} rolled: {}".format(message.author), result)
