@@ -142,4 +142,4 @@ def get_dice_from_attr(attr_score):
 
 
 def roll_raw(pattern):
-    return xdice.roll(pattern).format()
+    return xdice.roll(pattern)
