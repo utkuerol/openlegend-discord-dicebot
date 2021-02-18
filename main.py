@@ -25,7 +25,7 @@ async def on_message(message):
         else:
             vicious, destructive, attr_score, adv, repeat_factor = utils.parse_msg(
                 message.content)
-            results = utils.calculate_result(
+            results, info = utils.calculate_result(
                 vicious, destructive, attr_score, adv, repeat_factor)
             msg = "{} rolled: ".format(message.author)
             for result in results:
@@ -59,9 +59,15 @@ async def on_message(message):
                 if attr_dropped == "":
                     attr_dropped = "-"
 
-                msg += "\n----------\nTotal: {} \nBase ({}): \t {} \t *dropped: {} \t dropped (vicious strike): {}* \nAttribute ({}): \t {} \t *dropped: {}*".format((total_base + total_attr), total_base,
-                                                                                                                                                                     base_kept, base_dropped, base_dropped_vs, total_attr, attr_kept, attr_dropped)
+                msg += "\n----------\nTotal: {} \nBase (1d20 = {}): \t {} \t *dropped: {} \t dropped (vicious strike): {}* \nAttribute ({} = {}): \t {} \t *dropped: {}*".format((total_base + total_attr), total_base,
+                                                                                                                                                                                 base_kept, base_dropped, base_dropped_vs, total_attr, info, attr_kept, attr_dropped)
 
             await message.channel.send(msg)
+
+    elif message.content.startswith("/r!") or message.content.startswith("/roll!"):
+        args = message.content.split(" ")[1:]
+        result = utils.roll_raw(args[0])
+        await message.channel.send("{} rolled: {}".format(message.author), result)
+
 
 client.run(TOKEN)

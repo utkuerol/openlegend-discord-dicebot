@@ -86,15 +86,20 @@ def calculate_result(vicious, destructive, attr_score, adv, repeat_factor):
     results = []
     dcount, dsize = get_dice_from_attr(int(attr_score))
 
-    for i in range(repeat_factor):
-        if dcount > 0:
+    if dcount > 0:
+        info = "{}d{}".format(dcount, dsize)
+        for i in range(repeat_factor):
             result = (roll20(0, vicious, destructive), rollAttr(
                 dcount, dsize, adv, destructive))
-        else:
+            results.append(result)
+
+    else:
+        info = "0"
+        for i in range(repeat_factor):
             result = (roll20(adv, vicious, destructive), ([[0]], [0]))
         results.append(result)
 
-    return results
+    return results, info
 
 
 def get_dice_from_attr(attr_score):
@@ -134,3 +139,7 @@ def get_dice_from_attr(attr_score):
     elif attr_score > 10:
         count, size = 4, 8
         return count, size
+
+
+def roll_raw(pattern):
+    return xdice.roll(pattern).format()
