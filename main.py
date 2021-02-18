@@ -67,7 +67,7 @@ async def on_message(message):
     elif message.content.startswith("/!r") or message.content.startswith("/!roll"):
         args = message.content.split(" ")[1:]
         result = utils.roll_raw(args[0])
-        await message.channel.send("{} rolled: {}".format(message.author), result)
+        await message.channel.send("{} rolled: {}".format(message.author, result))
 
 
 client.run(TOKEN)
