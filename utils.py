@@ -19,9 +19,9 @@ def parse_msg(message_content):
         elif arg == "-D" or arg == "-d":
             destructive = True
 
-    args = [a for a in args if a.lstrip("-").isnumeric()]
+    args = [a for a in args if a.lstrip("+-").isdigit()]
 
-    if len(args) < 2 or len(args) > 3:
+    if len(args) < 1 or len(args) > 3:
         return -1
 
     attr_score = args[0]
