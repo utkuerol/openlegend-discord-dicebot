@@ -40,7 +40,7 @@ def roll20(adv, vicious, destructive):
     if adv >= 0:
         score = xdice.rolldice(20, d20_count, adv, 0)
     elif adv < 0:
-        score = xdice.rolldice(20, d20_count, 0, adv)
+        score = xdice.rolldice(20, d20_count, 0, abs(adv))
 
     rolls = []
     dropped = score.dropped
@@ -66,7 +66,7 @@ def rollAttr(dcount, dsize, adv, destructive):
     if adv >= 0:
         score = xdice.rolldice(dsize, dcount, adv, 0)
     elif adv < 0:
-        score = xdice.rolldice(dsize, dcount, 0, adv)
+        score = xdice.rolldice(dsize, dcount, 0, abs(adv))
 
     rolls = []
     dropped = score.dropped
