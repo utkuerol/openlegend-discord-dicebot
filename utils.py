@@ -19,7 +19,7 @@ def parse_msg(message_content):
         elif arg == "-D" or arg == "-d":
             destructive = True
 
-    args = [a for a in args if a.isnumeric()]
+    args = [a for a in args if a.lstrip("-").isnumeric()]
 
     if len(args) < 2 or len(args) > 3:
         return -1
