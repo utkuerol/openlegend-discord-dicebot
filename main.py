@@ -27,7 +27,7 @@ async def on_message(message):
                 message.content)
             results, info = utils.calculate_result(
                 vicious, destructive, attr_score, adv, repeat_factor)
-            msg = "{} rolled: ".format(message.author)
+            msg = "{} rolled: ".format(message.author.username)
             for result in results:
                 msg += "\n\n**Roll {}**".format(results.index(result)+1)
 
@@ -68,6 +68,6 @@ async def on_message(message):
         args = message.content.split(" ")[1:]
         result = utils.roll_raw(args[0])
         if result != -1:
-            await message.channel.send("{} rolled: {} -> {}".format(message.author, args[0], result))
+            await message.channel.send("{} rolled: {} -> {}".format(message.author.username, args[0], result))
 
 client.run(TOKEN)

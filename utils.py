@@ -25,7 +25,10 @@ def parse_msg(message_content):
         return -1
 
     attr_score = args[0]
-    adv = args[1]
+
+    if len(args) == 2:
+        adv = args[1]
+
     if int(adv) > 10:
         adv = 10
 
