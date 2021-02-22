@@ -70,4 +70,11 @@ async def on_message(message):
         if result != -1:
             await message.channel.send("{} rolled: {} -> {}".format(message.author.display_name, args[0], result))
 
+    elif message.content.startswith("/help") or message.content.startswith("/h"):
+        file = open("./usage_help_msg", "r")
+        msg = file.read()
+        file.close()
+        await message.channel.send(msg)
+
+
 client.run(TOKEN)
