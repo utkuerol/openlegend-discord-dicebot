@@ -94,6 +94,10 @@ async def on_message(message):
         msg = file.read()
         file.close()
         await message.channel.send(msg)
+    
+    elif message.content.startswith("/source code") or message.content.startswith("/src"):
+        msg = "**Source Code:** https://github.com/utkuerol/openlegend-discord-dicebot"
+        await message.channel.send(msg)
 
 
 client.run(TOKEN)
