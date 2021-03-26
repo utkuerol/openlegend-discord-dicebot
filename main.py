@@ -1,22 +1,3 @@
-"""
-An OpenLegend RPG dice bot for Discord servers.
-    Copyright (C) 2021  Utku Erol
-    Contact: utku.erol@icloud.com
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-""" 
-
 from typing import Pattern
 import discord
 import utils
@@ -78,8 +59,7 @@ async def on_message(message):
                 if attr_dropped == "":
                     attr_dropped = "-"
 
-                msg += "\n----------\nTotal: {} \nBase (1d20 -> {}): \t {} \t *dropped: {} \t dropped (vicious strike): {}* \nAttribute ({} -> {}): \t {} \t *dropped: {}*".format((total_base + total_attr), total_base,
-                                                                                                                                                                                   base_kept, base_dropped, base_dropped_vs, info, total_attr, attr_kept, attr_dropped)
+                msg += "\n----------\nTotal: {} \nBase (1d20 -> {}): \t {} \n> \t *Dropped: {}* \n> \t _Dropped  **(Vicious Strike)**: {}_ \nAttribute ({} -> {}): \t {} \n> \t *Dropped: {}*".format( (total_base + total_attr), total_base, base_kept, base_dropped, base_dropped_vs, info, total_attr, attr_kept, attr_dropped)
 
             await message.channel.send(msg)
 
@@ -94,7 +74,7 @@ async def on_message(message):
         msg = file.read()
         file.close()
         await message.channel.send(msg)
-    
+        
     elif message.content.startswith("/source code") or message.content.startswith("/src"):
         msg = "**Source Code:** https://github.com/utkuerol/openlegend-discord-dicebot"
         await message.channel.send(msg)
