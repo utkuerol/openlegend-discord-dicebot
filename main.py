@@ -59,7 +59,10 @@ async def on_message(message):
                 if attr_dropped == "":
                     attr_dropped = "-"
 
-                msg += "\n----------\nTotal: {} \nBase (1d20 -> {}): \t {} \n> \t *Dropped: {}* \n> \t _Dropped  **(Vicious Strike)**: {}_ \nAttribute ({} -> {}): \t {} \n> \t *Dropped: {}*".format( (total_base + total_attr), total_base, base_kept, base_dropped, base_dropped_vs, info, total_attr, attr_kept, attr_dropped)
+                msg += "\n----------\nTotal: {} \nBase (1d20 -> {}): \t {} \n> \t *Dropped: {}*".format((total_base + total_attr), total_base, base_kept, base_dropped)
+                if vicious == True: # Only appends Vicious Strike info if the flag returns True
+                    msg += "\n> \t _Dropped  **(Vicious Strike)**: {}_".format(base_dropped_vs)
+                msg += "\nAttribute ({} -> {}): \t {} \n> \t *Dropped: {}*".format(info, total_attr, attr_kept, attr_dropped)
 
             await message.channel.send(msg)
 
