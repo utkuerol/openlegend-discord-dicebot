@@ -12,7 +12,7 @@ An OpenLegend RPG dice bot for Discord servers.
     GNU General Public License for more details.
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-""" 
+"""
 
 from typing import Pattern
 import discord
@@ -92,10 +92,6 @@ async def on_message(message):
         file = open("./usage_help_msg", "r")
         msg = file.read()
         file.close()
-        await message.channel.send(msg)
-        
-    elif message.content.startswith("/source code") or message.content.startswith("/src"):
-        msg = "**Source Code:** https://github.com/utkuerol/openlegend-discord-dicebot"
         await message.channel.send(msg)
 
 

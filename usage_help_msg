@@ -15,3 +15,9 @@
 
 **xdice pattern:** Given pattern should be as described in the *xdice* documentation: https://xdice.readthedocs.io/en/latest/dice_notation.html#patterns.
 Use this to roll "raw", i.e. without any Open Legend RPG specific logic.
+
+> **__Source Code__**
+>
+> Openlegend Dice Bot for Discord is an open source project. Any contribution is welcome! 
+> 
+> Link to the source code: https://github.com/utkuerol/openlegend-discord-dicebot
