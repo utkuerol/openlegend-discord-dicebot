@@ -39,10 +39,14 @@ def parse_msg(message_content):
 
     args = [a for a in args if a.lstrip("+-").isdigit()]
 
-    if len(args) < 1 or len(args) > 3:
+    if len(args) < 0 or len(args) > 3:
         return -1
-
-    attr_score = args[0]
+        
+    if len(args) == 0:
+        attr_score = 0
+        adv = 0
+    else:
+        attr_score = args[0]
 
     if len(args) == 2:
         adv = args[1]
