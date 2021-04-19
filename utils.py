@@ -15,7 +15,7 @@ An OpenLegend RPG dice bot for Discord servers.
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-"""        
+"""
 import xdice
 
 
@@ -41,7 +41,7 @@ def parse_msg(message_content):
 
     if len(args) < 0 or len(args) > 3:
         return -1
-        
+
     if len(args) == 0:
         attr_score = 0
         adv = 0
