@@ -48,7 +48,7 @@ def parse_msg(message_content):
     else:
         attr_score = args[0]
 
-    if len(args) == 2:
+    if len(args) >= 2:
         adv = args[1]
 
     if int(adv) > 10:
