@@ -22,7 +22,7 @@ import discord
 import utils
 import os
 
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.all())
 TOKEN = os.environ['DISCORD_OPENLEGEND_BOT_TOKEN']
 
 
